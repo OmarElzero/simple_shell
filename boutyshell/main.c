@@ -1,7 +1,14 @@
 #include "MFheader.h"
-int main()
+
+/**
+ * main - Entry point of the script
+ *
+ * Return: 0 on success
+ */
+
+int main(void)
 {
-    int interactive;
+	int interactive;
 
 
 	interactive = isatty(fileno(stdin));
@@ -15,5 +22,5 @@ int main()
 		nonInterproc();
 	}
 
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }

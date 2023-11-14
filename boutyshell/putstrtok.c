@@ -7,15 +7,15 @@
 */
 char **putstrtok(char *linebuff, char *d)
 {
-	
 	char **dop = NULL;
 	int argc = 0;
 	int i = 0;
 	char *linebuff_copy;
 	char *linebuff_copy1;
+	char *token;
 
 	linebuff_copy = strdup(linebuff);
-	char *token = strtok(linebuff_copy, d);
+	token = strtok(linebuff_copy, d);
 	while (token)
 	{
 		token = strtok(NULL, d);
@@ -36,5 +36,5 @@ char **putstrtok(char *linebuff, char *d)
 	freenfr(linebuff_copy);
 	freenfr(linebuff_copy1);
 	freenfr(token);
-	return dop;
+	return (dop);
 }

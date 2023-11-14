@@ -2,7 +2,7 @@
 /**
  * Prompt - func to print prompt
 */
-void Prompt()
+void Prompt(void)
 {
 	printf("BoutomrSHELL  :");
 }

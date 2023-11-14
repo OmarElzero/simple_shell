@@ -1,5 +1,14 @@
 #include "MFheader.h"
 
+/**
+ * execution - func that execute prog
+ * @pathname: full path of executable command
+ * @argv: arguments vector
+ * @linebuff: input string
+ * @environ: environement variable
+ * no return void func
+ */
+
 void execution(char *pathname, char **argv, char *linebuff, char **environ)
 {   pid_t chpid;
 	if (pathname == NULL)
@@ -7,8 +16,9 @@ void execution(char *pathname, char **argv, char *linebuff, char **environ)
 		perror("command");
 		return;
 	}
+	chpid = fork();
 
-	if ((chpid = fork()) == -1)
+	if (chpid == -1)
 	{
 		perror("fork");
 		freenfr(linebuff);
@@ -29,11 +39,12 @@ void execution(char *pathname, char **argv, char *linebuff, char **environ)
 	else
 	{
 		int status;
+
 		wait(&status);
 
 		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 		{
-			fprintf(stderr, "Command failed with exit status %d\n", WEXITSTATUS(status));
+			fprintf(stderr, " exit status %d\n", WEXITSTATUS(status));
 		}
 	}
 
