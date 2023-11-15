@@ -5,7 +5,8 @@ int main(void) {
     char *input;
     char *buf = NULL, *buf_cpy;
     size_t n;
-    int i;
+    int i
+    ;
 
     /* Check if the shell is in interactive mode*/
     int interactive_mode = isatty(STDIN_FILENO);
