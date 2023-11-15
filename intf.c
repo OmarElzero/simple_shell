@@ -25,5 +25,6 @@ void interproc(void)
 		argv = putstrtok(linebuff, " ");
 		fp = MF_fullpath(argv[0]);
 		execution(fp, argv, linebuff, environ);
+		freearr(argv);/*changed*/
 	}
 }
