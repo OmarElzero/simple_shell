@@ -26,7 +26,7 @@ void nonInterproc(void)
 		execution(fp, argv, linebuff, environ);
 
 
-		freearr(argv);
+	
 	}
 
 	freenfr(linebuff);
