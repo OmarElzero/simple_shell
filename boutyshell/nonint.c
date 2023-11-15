@@ -2,7 +2,7 @@
 /**
  * nonInterproc - func that proccess non interactive mode
 */
-void nonInterproc()
+void nonInterproc(void)
 {
 	char *linebuff = NULL;
 	size_t buffsize = 0;

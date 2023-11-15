@@ -1,4 +1,9 @@
 #include "MFheader.h"
+/**
+ * MF_fullpath - function that finds fullpath
+ * @flname: file name to the command
+ * Return: path on success and null on failure
+ */
 
 char *MF_fullpath(char *flname)
 {
@@ -6,9 +11,10 @@ char *MF_fullpath(char *flname)
 	char *patcp;
 	char *getdir;
 	char *fpath;
-	if (access(flname,X_OK) == 0)
+
+	if (access(flname, X_OK) == 0)
 	{
-		return(flname);
+		return (flname);
 	}
 	else
 	{
@@ -26,7 +32,7 @@ char *MF_fullpath(char *flname)
 		if (access(fpath, X_OK) == 0)
 		{
 			freenfr(patcp);
-			return(fpath);
+			return (fpath);
 		}
 		getdir = strtok(NULL, ":");
 	}
@@ -34,5 +40,5 @@ char *MF_fullpath(char *flname)
 
 	freenfr(patcp);
 	freenfr(fpath);
-	return NULL;
+	return (NULL);
 }

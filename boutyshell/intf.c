@@ -2,7 +2,7 @@
 /**
  * interproc - fun that proccess the interactive mode
 */
-void interproc()
+void interproc(void)
 {
 	char *linebuff = NULL;
 	size_t buffsize = 0;
@@ -11,6 +11,7 @@ void interproc()
 	while (1)
 	{
 		char *fp;
+
 		printf("BoutomrSHELL  :");
 		_getline(&linebuff, &buffsize);
 
