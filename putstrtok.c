@@ -11,10 +11,11 @@ char **putstrtok(char *linebuff, char *d)
 	int argc = 0;
 	int i = 0;
 	char *linebuff_copy;
-	char *linebuff_copy1 = NULL;
+	char *linebuff_copy1;
 	char *token;
 
 	linebuff_copy = strdup(linebuff);
+	linebuff_copy1 = strdup(linebuff);
 	token = strtok(linebuff_copy, d);
 	while (token)
 	{
@@ -24,7 +25,7 @@ char **putstrtok(char *linebuff, char *d)
 
 	dop = malloc(sizeof(char *) * (argc + 1));
 
-	token = strtok(linebuff, d);
+	token = strtok(linebuff_copy1, d);
 	while (token)
 	{
 		dop[i] = strdup(token);
