@@ -4,8 +4,7 @@
  * nonInterproc - func that processes non-interactive mode
  */
 void nonInterproc(void)
-{
-	char *linebuff = NULL;
+{	char *linebuff = NULL;
 	size_t buffsize = 0;
 	char **argv;
 	char *fp;
@@ -27,10 +26,23 @@ void nonInterproc(void)
 		linebuff[strlen(linebuff) - 1] = '\0';
 
 		argv = putstrtok(linebuff, " ");
+		if (argv == NULL)
+		{
+			perror("putstrtok");
+			freenfr(linebuff);
+			break;
+		}
 		fp = MF_fullpath(argv[0]);
+		if (fp == NULL)
+		{
+			perror("MF_fullpath");
+			freearr(argv);
+			freenfr(linebuff);
+			break;
+		}
 		execution(fp, argv, linebuff, environ);
-
 		freearr(argv);
+		freenfr(linebuff);
+		freenfr(fp);
 	}
-	freenfr(linebuff);
 }

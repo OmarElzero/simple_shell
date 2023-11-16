@@ -10,14 +10,13 @@
 void execution(char *pathname, char **argv, char *linebuff, char **environ)
 {
 	pid_t chpid;
-	/**/
+	int status;
+
 	if (pathname == NULL)
 	{
 		perror("command");
 		return;
 	}
-	int status;
-
 	chpid = fork();
 	if (chpid == -1)
 	{
@@ -36,6 +35,7 @@ void execution(char *pathname, char **argv, char *linebuff, char **environ)
 		{
 			perror("execve");
 			fprintf(stderr, "Error executing command: %s\n", argv[0]);
+			freenfr(pathname);
 			exit(EXIT_FAILURE);
 		}
 		fprintf(stderr, "Command not found: %s\n", argv[0]);

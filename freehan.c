@@ -4,11 +4,12 @@
  * @str: string to free
  * No return void func
 */
-void freenfr(char *str)
+void freenfr(char **str)
 {
-	if (str != NULL)
+	if (str != NULL && *str != NULL)
 	{
-		free(str);
+		free(*str);
+		*str = NULL;
 	}
 }
 /**
@@ -16,13 +17,18 @@ void freenfr(char *str)
  * @arrtbf: array to be freed
  * No return void func
 */
-void freearr(char **arrtbf)
+void freearr(char ***arrtbf)
 {
 	int i;
 
-	for (i = 0; arrtbf[i] != NULL; i++)
+	if (arrtbf != NULL && *arrtbf != NULL)
 	{
-		freenfr(arrtbf[i]);
+		for (i = 0; (*arrtbf)[i] != NULL; i++)
+		{
+			freenfr(&(*arrtbf)[i]);
+		}
+		free(*arrtbf);
+		*arrtbf = NULL;
 	}
-	free(arrtbf);
 }
+

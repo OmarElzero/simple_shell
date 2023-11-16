@@ -21,6 +21,6 @@ int main(void)
 	{
 		nonInterproc();
 	}
-
+	freenfr(linebuff);
 	return (EXIT_SUCCESS);
 }
