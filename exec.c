@@ -28,12 +28,10 @@ void execution(char *pathname, char **argv, char *linebuff, char **environ)
 	if (chpid == 0)
 	{
 		if (strcmp(pathname, "/bin/ls") == 0)
-		{
-			printf("Executing /bin/ls...\n");
+		{	printf("Executing /bin/ls...\n");
 		}
 		if (execve(pathname, argv, environ) == -1)
-		{
-			perror("execve");
+		{	perror("execve");
 			fprintf(stderr, "Error executing command: %s\n", argv[0]);
 			freenfr(pathname);
 			exit(EXIT_FAILURE);
@@ -47,6 +45,7 @@ wait(&status);
 		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 		{
 			fprintf(stderr, " exit status %d\n", WEXITSTATUS(status));
-		}
-	}	freenfr(pathname);
+}	}
+	if (pathname != NULL)
+	freenfr(pathname);
 }

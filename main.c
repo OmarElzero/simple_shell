@@ -8,6 +8,7 @@
 
 int main(void)
 {
+	char *linebuff = NULL;
 	int interactive;
 
 

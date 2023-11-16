@@ -1,5 +1,5 @@
-#ifndef MFHEAD_H
-#define MFHEAD_H
+#ifndef MFHEADER_H
+#define MFHEADER_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,7 +28,7 @@ char **putstrtok(char *linebuff, char *d);
 char *MF_fullpath(char *flname);
 /*free*/
 void freenfr(char *str);
-void freearr(char **arrtf);
+void freearr(char **arrtbf);
 
 /*proccesses*/
 void execution(char *pathname, char **argv, char *linebuff, char **environ);
