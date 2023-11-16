@@ -32,7 +32,7 @@ void freearr(char **arrtf);
 
 /*proccesses*/
 void execution(char *pathname, char **argv, char *linebuff, char **environ);
-void _getline(char **linebuff, size_t *buffsize);
+int _getline(char **linebuff, size_t *buffsize);
 void nonInterproc(void);
 void interproc(void);
 

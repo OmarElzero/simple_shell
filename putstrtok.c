@@ -36,6 +36,5 @@ char **putstrtok(char *linebuff, char *d)
 
 	freenfr(linebuff_copy);
 	freenfr(linebuff_copy1);
-	freenfr(token);
 	return (dop);
 }
