@@ -4,5 +4,5 @@
 */
 void Prompt(void)
 {
-	printf("$ ");
+	printf("BoutomrSHELL  :");
 }
