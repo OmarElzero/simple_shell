@@ -29,6 +29,7 @@ void interproc(void)
             break;
         }
 
+<<<<<<< HEAD
         if (strcmp(linebuff, "env") == 0)
         {
             char **env = environ;
@@ -46,4 +47,11 @@ void interproc(void)
 
         execution(fp, argv, linebuff, environ);
     }
+=======
+		argv = putstrtok(linebuff, " ");
+		fp = MF_fullpath(argv[0]);
+		execution(fp, argv, linebuff, environ);
+		freearr(argv);/*changed*/
+	}
+>>>>>>> origin/main
 }

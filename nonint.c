@@ -33,5 +33,13 @@ void nonInterproc(void)
         freearr(argv);
     }
 
+<<<<<<< HEAD
     freenfr(linebuff);
+=======
+
+	
+	}
+
+	freenfr(linebuff);
+>>>>>>> origin/main
 }
