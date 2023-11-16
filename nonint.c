@@ -5,41 +5,32 @@
  */
 void nonInterproc(void)
 {
-    char *linebuff = NULL;
-    size_t buffsize = 0;
-    char **argv;
-    char *fp;
+	char *linebuff = NULL;
+	size_t buffsize = 0;
+	char **argv;
+	char *fp;
 
-    while (1)
-    {
-        if (getline(&linebuff, &buffsize, stdin) == -1)
-        {
-            perror("end of file");
-            break;
-        }
+	while (1)
+	{
+		if (getline(&linebuff, &buffsize, stdin) == -1)
+		{
+			perror("end of file");
+			break;
+		}
 
-        if (linebuff == NULL)
-        {
-            perror("getline");
-            exit(EXIT_FAILURE);
-        }
+		if (linebuff == NULL)
+		{
+			perror("getline");
+			exit(EXIT_FAILURE);
+		}
 
-        linebuff[strlen(linebuff) - 1] = '\0';
+		linebuff[strlen(linebuff) - 1] = '\0';
 
-        argv = putstrtok(linebuff, " ");
-        fp = MF_fullpath(argv[0]);
-        execution(fp, argv, linebuff, environ);
+		argv = putstrtok(linebuff, " ");
+		fp = MF_fullpath(argv[0]);
+		execution(fp, argv, linebuff, environ);
 
-        freearr(argv);
-    }
-
-<<<<<<< HEAD
-    freenfr(linebuff);
-=======
-
-	
+		freearr(argv);
 	}
-
 	freenfr(linebuff);
->>>>>>> origin/main
 }
